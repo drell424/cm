@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @quote.user_id %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @quote.project_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @quote.price %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @quote.details %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

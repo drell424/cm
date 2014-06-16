@@ -33,6 +33,13 @@ gem 'spring',        group: :development
 ### Devise for User
 gem 'devise'
 
+group :development do
+	gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
