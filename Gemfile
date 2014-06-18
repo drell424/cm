@@ -33,6 +33,9 @@ gem 'high_voltage', '~> 2.1.0'
 ### Devise for User
 gem 'devise'
 
+### Paperclip for attached layout 
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 group :development do
 	gem 'pry-rails'
   gem 'better_errors'
