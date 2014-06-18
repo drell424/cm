@@ -16,6 +16,7 @@
  *= require 'projects'
  *= require 'quotes'
  *= require 'scaffolds'
+ *= require 'customer_account'
  */
 
 .fileUpload {
@@ -141,4 +142,8 @@ header img {
 
 .login a {
     color: white;
+}
+
+a {
+    color: inherit !important;
 }

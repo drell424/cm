@@ -1,0 +1,53 @@
+<header>
+    <%= image_tag "logo2.png" %>
+    <ul class="pull-right nav">
+        <li><%= link_to 'My Account', pages_dealer_account_path  %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %></li>
+    </ul>
+</header>
+<div class='row'>
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Welcome, <%= current_user.email %>!</h1>
+        <div class="btn-primary btn btn-lg"><%= link_to 'Find Customers' %></div>
+    </div>
+</div>
+
+<div class='row'>
+    <div class="col-md-8 col-md-offset-2">
+        <h2>My Quotes</h2>
+<% if current_user.quotes.length == 0 %>
+        <p>no quotes</p>
+    <% else %>
+<table>
+  <thead>
+    <tr>
+      <th>Details</th>
+      <th>Price</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    
+    <% current_user.quotes.each do |qoute| %>
+      <tr>
+        <td><%= quote.details %></td>
+        <td><%= quote.price %></td>
+        <td><%= link_to 'Show', quote %></td>
+        <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+        <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+        
+    </div>
+</div>
+    
+
+<footer>
+    
+    <p>&copy; 2014 CabMrkt</p>
+</footer>

@@ -1,0 +1,15 @@
+.nav li {
+    display: inline-block;
+    line-height: 50px;
+    margin-left: 20px;
+    color: white;
+}
+
+.nav li a {
+	padding:0;
+	color: white;
+}
+
+.nav li a:hover {
+	background-color: #333333;
+}

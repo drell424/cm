@@ -1,6 +1,6 @@
 class Dealer < User
-	has_one :user
-	has_many :quotes
+	# has_one :user
+	# has_many :quotes
 
 	
     

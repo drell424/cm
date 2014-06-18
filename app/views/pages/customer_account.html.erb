@@ -1,0 +1,55 @@
+<header>
+    <%= image_tag "logo2.png" %>
+    <ul class="pull-right nav">
+        <li><%= link_to 'My Account', pages_customer_account_path  %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %></li>
+    </ul>
+</header>
+<div class='row'>
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Welcome, <%= current_user.email %>!</h1>
+        <div class="btn-primary btn btn-lg"><%= link_to 'Create New Project', new_project_path %></div>
+    </div>
+</div>
+
+<div class='row'>
+    <div class="col-md-8 col-md-offset-2">
+        <h2>My Projects</h2>
+<% if current_user.projects.length == 0 %>
+        <p>no projects</p>
+    <% else %>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>User</th>
+      <th>Zip</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    
+    <% current_user.projects.each do |project| %>
+      <tr>
+        <td><%= project.description %></td>
+        <td><%= project.user_id %></td>
+        <td><%= project.zip %></td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+        
+    </div>
+</div>
+    
+
+<footer>
+    
+    <p>&copy; 2014 CabMrkt</p>
+</footer>
