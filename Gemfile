@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'high_voltage', '~> 2.1.0'
 
 ### Devise for User
 gem 'devise'

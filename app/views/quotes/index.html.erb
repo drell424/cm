@@ -1,4 +1,4 @@
-<h1>Listing quotes</h1>
+<h1>Listing quotes for <%= current_user.email %></h1>
 
 <table>
   <thead>
@@ -12,7 +12,8 @@
   </thead>
 
   <tbody>
-    <% @quotes.each do |quote| %>
+    <% current_user.quotes.each do |quote| %>
+    
       <tr>
         <td><%= quote.user_id %></td>
         <td><%= quote.project_id %></td>

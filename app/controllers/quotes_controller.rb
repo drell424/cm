@@ -1,5 +1,6 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:show]
 
   # GET /quotes
   # GET /quotes.json
@@ -25,6 +26,10 @@ class QuotesController < ApplicationController
   # POST /quotes.json
   def create
     @quote = Quote.new(quote_params)
+
+    if user_signed_in?
+      @quote.user_id = current_user.id
+    end
 
     respond_to do |format|
       if @quote.save

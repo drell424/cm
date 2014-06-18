@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :projects
 
   devise_for :users
+
+  resources :dealer
+
+  get 'pages/dealer' => 'high_voltage/pages#show', id: 'dealer'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
