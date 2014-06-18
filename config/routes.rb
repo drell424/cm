@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :dealer
 
-  get 'pages/dealer' => 'high_voltage/pages#show', id: 'dealer'
+  get 'pages/dealer' => 'high_voltage/pages#show', id: 'dealer_sign_up'
+  get 'pages/customer' => 'high_voltage/pages#show', id: 'customer_sign_up'
+  # get 'pages/customer' => 'high_voltage/pages#show', id: 'customer_sign_up'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

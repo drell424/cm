@@ -128,3 +128,17 @@ header {
 header img {
     height: 50px;
 }
+
+.login {
+    padding:20px 20px 10px 20px;
+    background-color: #333333;
+    color: white;
+    border-radius: 8px;
+    position: relative;
+    top: -10px;
+
+}
+
+.login a {
+    color: white;
+}
