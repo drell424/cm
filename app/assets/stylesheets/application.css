@@ -10,6 +10,121 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+
  *= require_self
+
+ *= require 'projects'
+ *= require 'quotes'
+ *= require 'scaffolds'
  */
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 500px; 
+    background: url('bg.png') no-repeat;
+    /*background-size: 1200px;*/
+    opacity: .8;
+    
+}
+
+.row.one {
+     margin-bottom: 110px;
+}
+
+.jumbo {
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+
+
+.row.one {
+    text-align: center;
+   
+}
+
+
+
+.jumbo {
+    
+    background: url('jumbobg.png');
+    
+}
+
+.jumbo input[type=submit] {
+    background: none;
+border: none;
+color: #333;
+}
+
+.jumbo p {
+    font-weight: bold; 
+}
+
+.row.one img {
+    display: block;
+    border-radius: 10px;
+    position: relative;
+    top: -10px;
+}
+
+.row.two {
+    background-color: white;
+}
+
+.row.two h4 {
+    text-align: center;
+}
+
+.row.three {
+    text-align: center;
+    padding: 20px 0;
+
+}
+
+.row.three h4 {
+    font-style: italic;
+}
+
+
+footer {
+    padding: 20px;
+    background-color: #333333;
+    color: white;
+    margin-top: 100px;
+}
+
+.hr {
+    width: 50%;
+    margin: 30px auto 0 auto;
+    border-top: 1px solid #333;
+}
+
+header {
+    padding: 10px 30px; 
+    background-color: #333333;
+    margin-bottom: 50px;
+}
+
+header img {
+    height: 50px;
+}
