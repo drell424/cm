@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  helper ProjectsHelper
+  # helper ProjectsHelper
+
+
 
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show]
@@ -7,8 +9,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    # @projects = Project.all
+    @projects = Project.search(params[:zip],params[:distance])
   end
+
+
 
   # GET /projects/1
   # GET /projects/1.json

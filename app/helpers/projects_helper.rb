@@ -1,9 +1,14 @@
 module ProjectsHelper
+@zip
+@distance
+	
 
-	def search 
-    zip = "07302"
-    @search_latlon = Geokit::Geocoders::MultiGeocoder.geocode(zip)
+	def search(distance, zip) 
+    # zip = "07302"
 
+    @zip = zip
+    @search_latlon = Geokit::Geocoders::MultiGeocoder.geocode(@zip)
+    @distance = distance
     @pros = Project.all
 
     @results = []
@@ -15,7 +20,7 @@ module ProjectsHelper
 
     @pros.each do |p|      
 
-      if @search_latlon.distance_to(p.lat_lon) < 10
+      if @search_latlon.distance_to(p.lat_lon) < @distance
       	@results << p
       end
 
@@ -23,5 +28,8 @@ module ProjectsHelper
 
     @results
   end
-  
+
+
+
+
 end

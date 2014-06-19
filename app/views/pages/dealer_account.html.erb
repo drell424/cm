@@ -5,11 +5,36 @@
         <li><%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %></li>
     </ul>
 </header>
+
+
+<% if current_user.role == "customer" %>
+  <h2>You must be a dealer to view this page</h2>
+<% else %>
+
+
 <div class='row'>
     <div class="col-md-8 col-md-offset-2">
         <h1>Welcome, <%= current_user.email %>!</h1>
         <div class="btn-primary btn btn-lg"><%= link_to 'Find Customers' %></div>
     </div>
+    <div class='row'>
+    <div class="col-md-8 col-md-offset-2">
+      <h2>Find Customers</h2>
+
+    <%= form_tag projects_path, :method => 'get' do %>
+  <p>
+    Zip
+    <%= text_field_tag :zip, params[:zip] %>
+    Distance
+    <%= text_field_tag :distance, params[:distance] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+
+<% end %>
+
+
+    </div>
+</div>
 </div>
 
 <div class='row'>
@@ -45,9 +70,11 @@
         
     </div>
 </div>
-    
+
+<% end %>
 
 <footer>
     
     <p>&copy; 2014 CabMrkt</p>
 </footer>
+

@@ -5,6 +5,11 @@
         <li><%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %></li>
     </ul>
 </header>
+
+<% if current_user.role == "customer" %>
+  <h2>You must be a customer to view this page</h2>
+<% else %>
+
 <div class='row'>
     <div class="col-md-8 col-md-offset-2">
         <h1>Welcome, <%= current_user.email %>!</h1>
@@ -48,7 +53,7 @@
     </div>
 </div>
     
-
+<% end %>
 <footer>
     
     <p>&copy; 2014 CabMrkt</p>

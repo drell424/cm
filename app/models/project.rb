@@ -8,6 +8,34 @@ class Project < ActiveRecord::Base
   validates_attachment_content_type :layout, :content_type => /\Aimage\/.*\Z/
 
 
+def self.search(zip, distance)
 
+  if zip
+    @zip = zip
+    @distance = distance.to_i
+    @search_latlon = Geokit::Geocoders::MultiGeocoder.geocode(@zip)
+
+    @pros = Project.all
+
+    @results = []
+
+    # @results.each do |r|
+    # 	puts r.id
+
+    # end
+
+    @pros.each do |p|      
+
+      if @search_latlon.distance_to(p.lat_lon) < @distance
+      	@results << p
+      end
+
+    end
+
+    @results
+  else
+    puts "none"
+  end
+end
 
 end
