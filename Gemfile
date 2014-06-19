@@ -42,6 +42,9 @@ group :development do
   gem 'binding_of_caller'
 end
 
+gem 'geokit-rails'
+
+gem "geokit"
 
 # Use unicorn as the app server
 # gem 'unicorn'

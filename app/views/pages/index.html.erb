@@ -9,7 +9,7 @@
                 <% if user_signed_in? %>
                     <span class="pull-right login"> <%= link_to "My Account" %> | <%= link_to "Sign Out",  destroy_user_session_path, :method => 'delete' %></span>
                 <% else %>
-                    <span class="pull-right login"> <%= link_to "Dealer Login",  new_user_session_path %> | <%= link_to "Dealer Sign Up",  pages_dealer_path %> </span>
+                    <span class="pull-right login"> <%= link_to "Login",  new_user_session_path %> | <%= link_to "Dealer Sign Up",  pages_dealer_path %> </span>
                 <% end %>
 
                 <div class="col-md-8 col-md-offset-2 jumbo">
@@ -25,7 +25,12 @@
 
                     <div class="btn btn-success btn-lg">
                         <% if user_signed_in? %>
-                            <%= link_to "Get Started!" %>
+                                <% if current_user.role == "customer" %>
+                                    <%= link_to "Get Started!", pages_customer_account_path %>
+                                <% elsif current_user.role == "dealer" %>
+                                    <%= link_to "Get Started!", pages_dealer_account_path %>
+                                <% end %>
+
                         <% else %>
                             <%= link_to "Get Started!",  pages_customer_path %>
                         <!-- <span>Next Step</span> -->

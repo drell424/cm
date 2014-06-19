@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'pages/customer_account' => 'high_voltage/pages#show', id: 'customer_account'
   get 'pages/dealer_account' => 'high_voltage/pages#show', id: 'dealer_account'
+
+  get 'pages/search' => 'high_voltage/pages#show', id: 'search'  
   # get 'pages/customer' => 'high_voltage/pages#show', id: 'customer_sign_up'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
