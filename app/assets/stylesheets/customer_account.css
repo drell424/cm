@@ -13,3 +13,8 @@
 .nav li a:hover {
 	background-color: #333333;
 }
+
+td,
+th {
+	padding-right: 30px;
+}

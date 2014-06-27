@@ -11,10 +11,12 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    @project = @quote.project
   end
 
   # GET /quotes/new
   def new
+    @project = Project.find(params[:id])
     @quote = Quote.new
   end
 
@@ -30,6 +32,8 @@ class QuotesController < ApplicationController
     if user_signed_in?
       @quote.user_id = current_user.id
     end
+
+    # @quote.details = simple_format(@quote.details)
 
     respond_to do |format|
       if @quote.save
@@ -61,7 +65,7 @@ class QuotesController < ApplicationController
   def destroy
     @quote.destroy
     respond_to do |format|
-      format.html { redirect_to quotes_url, notice: 'Quote was successfully destroyed.' }
+      format.html { redirect_to pages_dealer_account_path, notice: 'Quote was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

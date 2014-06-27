@@ -1,0 +1,12 @@
+.find {
+	display: none;
+}
+
+.show {
+	display: block !important;
+}
+
+/*td,
+th {
+	padding-right: 30px;
+}*/

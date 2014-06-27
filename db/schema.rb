@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619165244) do
+ActiveRecord::Schema.define(version: 20140626203220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140619165244) do
     t.integer  "layout_file_size"
     t.datetime "layout_updated_at"
     t.string   "lat_lon"
+    t.string   "title"
   end
 
   create_table "quotes", force: true do |t|

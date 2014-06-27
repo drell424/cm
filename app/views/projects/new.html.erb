@@ -1,20 +1,73 @@
-<header>
-    <%= image_tag "logo2.png" %>
-    <ul class="pull-right nav">
-        <li><%= link_to 'My Account', pages_customer_account_path  %></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %></li>
-    </ul>
-</header>
+<%= render "layouts/header" %>
 
 <div class="row">
 
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-4 col-md-offset-2 project">
 
 <h1>New project</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', pages_customer_account_path %>
 
 </div>
+
+<div class="col-md-4 project-helper">
+                <h3>Instructions</h3>
+                <h4>Step 1: Upload layout</h4>
+                <p>Upload your layout. We accept pdf, jpg, jpeg, png file formats. If you don't have a layout, a list of cabinets will work.</p>
+                <h4>Step 2: Details</h4>
+                <p>The details are the most important. Be as detailed as possible for the most accurate quotes.</p>
+                <h4>Details to include:</h4>
+                <ul class="details-list">
+                    <li class="bold">Cabinet Style and Color</li>
+                        <ul class="nest">
+                            <li>Tradition, Modern, Economy</li>
+                            <li>Raised Panel, Shaker, Flat Panel</li>
+                            <li>Natural Wood, Painted, Thermofoil</li>
+                            <li>Cherry, Oak, Maple, Birch</li>
+                            <li>Espresso, Antique White, Bright White, Cherry, Grey</li>
+                        </ul>
+                    <li class="bold">Type of Project</li>
+                        <ul class="nest">
+                            <li>Home</li>
+                            <li>Rental Unit</li>
+                            <li>New Construction</li>
+                            <li>Renovation</li>
+                            <li>Flip</li>
+                        </ul>
+                    <li class="bold">Timeframe</li>
+                        <ul class="nest">
+                            <li>ASAP</li>
+                            <li>1-2 Months</li>
+                            <li>When it's perfect</li>
+                            
+
+                        </ul>
+
+                    <li class="bold">Cabinet Features</li>
+                        <ul class="nest">
+                            <li>Soft close drawers/doors</li>
+                            <li>Dovetail drawers</li>
+                            <li>Allwood construction</li>
+                            
+
+                        </ul>
+                    <li class="bold">Accesories</li>
+                        <ul class="nest">
+                            <li>Glass Doors</li>
+                            <li>Trash Pullout</li>
+                            <li>Crown Moulding</li>
+                            <li>Light Rail Moulding</li>
+                            <li>Spice Rack</li>
+                        </ul>
+                </ul>
+                <h4>Step 3: Zip Code</h4>
+                <p>The zip code where the project is located. We need this to match you with local dealers!</p>
+                <h4>Step 4: Submit!</h4>
+                <p>Submit your project and wait for quotes! Typically, you can expect quotes to start arriving in 24-48 hours.</p>
+            </div>
+        </div>
 </div>
+
+<%= render 'layouts/footer' %>

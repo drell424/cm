@@ -10,8 +10,13 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
 
   <div class="field">
+    <%= f.label :layout %><br>
     <%= f.file_field :layout %>
   </div>
 
@@ -27,6 +32,6 @@
     <%= f.text_field :zip %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => 'btn btn-primary' %>
   </div>
 <% end %>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :projects
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :dealer
 

@@ -1,24 +1,66 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>User:</strong>
-  <%= @quote.user_id %>
-</p>
+<%= render "layouts/header" %>
+
+
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-10 col-md-offset-1">
+
+<h1><%= @project.title %></h1>
+
+
 
 <p>
-  <strong>Project:</strong>
-  <%= @quote.project_id %>
+  <strong>Layout:</strong>
 </p>
+<%= image_tag @project.layout.url %>
+<br>
+<%= link_to "View Full Size Layout", @project.layout.url %>
 
+<p><strong>Description:</strong></p>
 <p>
-  <strong>Price:</strong>
-  <%= @quote.price %>
+  <%= simple_format(@project.description) %>
 </p>
 
+<p><strong>Zip:</strong></p>
 <p>
-  <strong>Details:</strong>
-  <%= @quote.details %>
+  <%= @project.zip %>
 </p>
 
-<%= link_to 'Edit', edit_quote_path(@quote) %> |
-<%= link_to 'Back', quotes_path %>
+<% if current_user == @project.user %>
+<%= link_to 'Edit', edit_project_path(@project) %> 
+
+<% else %>
+<%= link_to 'Back', pages_customer_account_path %>
+<% end %>
+
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-10 col-md-offset-1">
+	<h2>Quote</h2>
+  <p>
+    <strong>Details:</strong>
+    <%= simple_format(@quote.details) %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @quote.price %>
+  </p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %>
+
+
+</div>
+</div>
+
+</div><!-- container -->
+
+<%= render 'layouts/footer' %>

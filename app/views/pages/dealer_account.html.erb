@@ -1,54 +1,53 @@
-<header>
-    <%= image_tag "logo2.png" %>
-    <ul class="pull-right nav">
-        <li><%= link_to 'My Account', pages_dealer_account_path  %></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %></li>
-    </ul>
-</header>
+<%= render 'layouts/header' %>
 
 
 <% if current_user.role == "customer" %>
   <h2>You must be a dealer to view this page</h2>
 <% else %>
 
-
+<div class="container">
 <div class='row'>
     <div class="col-md-8 col-md-offset-2">
         <h1>Welcome, <%= current_user.email %>!</h1>
-        <div class="btn-primary btn btn-lg"><%= link_to 'Find Customers' %></div>
+        <div id="findBtn" class="btn-primary btn btn-lg">Find Customers</div>
     </div>
-    <div class='row'>
-    <div class="col-md-8 col-md-offset-2">
-      <h2>Find Customers</h2>
+
+    </div>
+
+<div class='row'>
+    <div class="col-md-8 col-md-offset-2 find">
+
 
     <%= form_tag projects_path, :method => 'get' do %>
-  <p>
-    Zip
-    <%= text_field_tag :zip, params[:zip] %>
-    Distance
-    <%= text_field_tag :distance, params[:distance] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+    <p>
+      Zip<br>
+      <%= text_field_tag :zip, params[:zip] %><br>
+      Distance<br>
+      <%= text_field_tag :distance, params[:distance] %><br>
+      <%= submit_tag "Search", :name => nil, :class => 'btn btn-primary' %>
+    </p>
 
 <% end %>
 
 
     </div>
+
 </div>
-</div>
+
 
 <div class='row'>
     <div class="col-md-8 col-md-offset-2">
         <h2>My Quotes</h2>
 <% if current_user.quotes.length == 0 %>
-        <p>no quotes</p>
+        <h3>You have no quotes, start by finding customers!</h3>
     <% else %>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Details</th>
+      <th>Project Name</th>
+
       <th>Price</th>
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -57,9 +56,11 @@
     
     <% current_user.quotes.each do |quote| %>
       <tr>
-        <td><%= quote.details %></td>
+        <!-- will work, just now -->
+        <td><%= quote.project.title %></td> 
+
         <td><%= quote.price %></td>
-        <td><%= link_to 'Show', quote %></td>
+        <td><%= link_to 'Show', quote.project %></td>
         <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
         <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -73,6 +74,8 @@
 
 <% end %>
 
+
+</div><!-- container -->
 <footer>
     
     <p>&copy; 2014 CabMrkt</p>

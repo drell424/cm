@@ -1,11 +1,5 @@
-<header>
-    <%= image_tag "logo2.png" %>
-    <ul class="pull-right nav">
-        <li><%= link_to 'My Account', pages_customer_account_path  %></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %></li>
-    </ul>
-</header>
-
+<%= render "layouts/header" %>
+<div class="container">
 
 <!-- <p id="notice"><%= notice %></p> -->
 
@@ -14,7 +8,7 @@
 
 <div class="col-md-10 col-md-offset-1">
 
-<h1>My Project</h1>
+<h1><%= @project.title %></h1>
 
 
 
@@ -23,11 +17,11 @@
 </p>
 <%= image_tag @project.layout.url %>
 <br>
-<%= link_to "View Full Size Layout", @project.layout.url %>
+<%= link_to "View Full Size Layout", @project.layout.url, :class => "pull-right" %>
 
 <p><strong>Description:</strong></p>
 <p>
-  <%= @project.description %>
+  <%= simple_format(@project.description) %>
 </p>
 
 <p><strong>Zip:</strong></p>
@@ -35,8 +29,55 @@
   <%= @project.zip %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<% if current_user == @project.user %>
+<%= link_to 'Edit', edit_project_path(@project) %> 
+
+<% else %>
 <%= link_to 'Back', pages_customer_account_path %>
+<% end %>
 
 </div>
 </div>
+<div class="row">
+
+    <div class="col-md-10 col-md-offset-1 rule"></div>
+
+  <div class="col-md-10 col-md-offset-1">
+
+<% if current_user.role == "dealer" %>
+
+
+
+    <%= form_tag new_quote_path, :method => 'get' do %>
+  <p>
+    
+    <%= hidden_field_tag :id, @project.id %>
+    
+
+    <%= submit_tag "Bid on this Project", :class => "btn btn-primary", :name => nil %>
+  </p>
+
+<% end %>
+
+<% elsif current_user.role == "customer" && current_user == @project.user %>
+
+  <h2>Quotes</h2>
+  <% if @project.quotes.count > 0 %>
+
+    <% @project.quotes.each_with_index do |quote, index| %>
+    <p><strong>Quote <%= index + 1 %></strong></p>
+     <p><strong>Details</strong></p>
+    <%= simple_format(quote.details) %>
+    <p><strong>Price</strong></p>
+    <%= quote.price %>
+    <% end %>
+
+  <% else %>
+    <p>No quotes yet :-(</p>
+  <% end %>
+<% end %>
+
+	</div>
+</div>
+</div><!-- container -->
+<%= render 'layouts/footer' %>

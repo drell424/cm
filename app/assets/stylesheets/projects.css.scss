@@ -1,3 +1,35 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.project textarea {
+    width: 100%;
+    height: 300px;
+}
+
+.project .btn {
+    margin-top: 20px;
+}
+
+.project-helper ul li {
+    list-style: circle;
+}
+
+.nest {
+    position: relative;
+    left: 40px;
+}
+
+.nest li {
+
+}
+
+.details-list {
+    position: relative;
+    left: 20px;
+}
+
+.bold {
+    font-weight: bold;
+}

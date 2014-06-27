@@ -1,5 +1,58 @@
-<h1>New quote</h1>
+<%= render "layouts/header" %>
+<div class="container">
+<div class="row">
 
-<%= render 'form' %>
+<div class="col-md-10 col-md-offset-1">
 
-<%= link_to 'Back', quotes_path %>
+<h2>Submit a Quote for this Project</h2>
+<h3>Project Details</h3>
+
+<p>
+  <strong>Layout:</strong>
+</p>
+<%= image_tag @project.layout.url %>
+<br>
+<%= link_to "View Full Size Layout", @project.layout.url %>
+
+<p><strong>Description:</strong></p>
+<p>
+  <%= @project.description %>
+</p>
+
+<p><strong>Zip:</strong></p>
+<p>
+  <%= @project.zip %>
+</p>
+
+
+
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1 rule"></div>
+    <div class="col-md-5 col-md-offset-1 quote">
+        <h2>My Quote</h2>
+       <%= render 'form' %>
+    </div>
+
+    <div class="col-md-5 quote-helper">
+        <h3>Instructions</h3>
+        <h4>Step 1: Proposal</h4>
+        <p>Here is your chance to sell yourself! Be sure to reveiw the layout and details thoroughly.</p>
+        <p>Details, details, details...</p>
+        <h4>Step 2: Quote</h4>
+        <p>Please provide a general idea of the cost of this cabinet order. Our quotes are not binding and typically change during the duration of the project.  This quote simply gives the customer an idea of how much it is going to cost so that nobody's time is wasted with unreal expectations.</p>
+        <p>However, this is not an opportunity to bait and switch.</p>
+        <h4>Step 3: Submit!</h4>
+        <p>Once submitted, the customer will be notified of a new quote on the project. The customer will reach out to you if interested.</p>
+
+    </div>
+    
+</div>
+
+</div>
+<footer>
+    
+    <p>&copy; 2014 CabMrkt</p>
+</footer>
