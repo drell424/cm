@@ -1,5 +1,9 @@
 <header>
-    <%= image_tag "logo2.png" %>
+    <% if current_user.role == "dealer" %>
+    	<%= link_to(image_tag("logo2.png"), pages_dealer_account_path) %>
+    <% elsif current_user.role =="customer" %>
+    	<%= link_to(image_tag("logo2.png"), pages_customer_account_path) %>
+    <% end %>
     <ul class="pull-right nav">
     		<% if current_user.role == "customer" %>
         	<li><%= link_to 'My Account', pages_customer_account_path  %></li>

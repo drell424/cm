@@ -7,6 +7,10 @@ class Project < ActiveRecord::Base
 	has_attached_file :layout, :styles => { :medium => "300x300>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :layout, :content_type => /\Aimage\/.*\Z/
 
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :layout, presence: true
+  validates :zip, presence: true
 
 def self.search(zip, distance)
 

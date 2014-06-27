@@ -18,6 +18,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    #@quotes = current_user.quotes
+
+
+
   end
 
   # GET /projects/new
